@@ -1,0 +1,7 @@
+- name: apply dev configuration to node
+  hosts: all
+  user: matt
+  sudo: yes
+  roles:
+    - common
+

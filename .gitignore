@@ -1,0 +1,9 @@
+*.egg*
+*.py[co]
+*.swp
+.DS_Store
+*~
+*.db
+*.log
+assets
+tmp/
