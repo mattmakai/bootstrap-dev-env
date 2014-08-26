@@ -1,0 +1,11 @@
+
+- name: create directory for virtualenv
+  command: mkdir /home/{{username}}/Envs creates=/home/{{username}}/Envs
+
+- name: create plushcap virtualenv
+  command: virtualenv --no-site-packages {{item}} 
+           chdir=/home/{{username}}/Envs
+  with_items:
+    - metareact
+    - plushcap
+    - pcf
