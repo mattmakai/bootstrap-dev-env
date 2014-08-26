@@ -24,4 +24,15 @@
 
 - include: create_virtualenvs.yml
 
+- name: create directory for development
+  command: mkdir -p /home/{{username}}/devel/py 
+           creates=/home/{{username}}/devel/py
 
+- name: pull all projects from remote Git repos
+  git: repo={{item}} dest=/home/{{username}}/devel/py/{{item}}
+       accept_hostkey=true
+       key_file=/home/{{username}}/.ssh/github
+  with_items:
+    - git@github.com:makaimc/plushcap.git
+    - git@github.com:makaimc/plushcap-flask.git
+    - git@github.com:makaimc/metareact.git
